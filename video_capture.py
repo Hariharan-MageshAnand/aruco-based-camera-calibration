@@ -8,7 +8,11 @@ parser=argparse.ArgumentParser()
 parser.add_argument("-cam","--camera",help="enter the camera ip or int")
 parser.add_argument("-o","--out",help="output folder location")
 args=parser.parse_args()
-vid = cv2.VideoCapture(args.camera)
+ch="0123456789"
+if ch.find(args.camera[0])!=-1:
+    vid = cv2.VideoCapture(int(args.camera))
+else:
+    vid=cv2.VideoCapture(args.camera)
 os.chdir(args.out)
 i=0
 while(True):
