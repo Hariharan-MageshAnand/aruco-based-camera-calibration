@@ -1,5 +1,3 @@
-#Hariharan Mageshanand
-
 from symbol import parameters
 import numpy as np
 import cv2
@@ -90,4 +88,6 @@ if args.Function=="calibrate":
         )
     print(mtx)
     print(dist)
+    np_file=np.asarray([mtx,dist])
+    np.save("calibration_result.npy",np_file,allow_pickle=True)
     
